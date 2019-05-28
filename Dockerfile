@@ -16,5 +16,18 @@ RUN curl -L -o /tmp/memcached.tar.gz "https://github.com/php-memcached-dev/php-m
 	&& rm /tmp/memcached.tar.gz
 
 
-RUN docker-php-ext-configure gd && \
-    docker-php-ext-install gd xmlrpc
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ --with-png-dir=/usr/include/ && \
+	docker-php-ext-configure bcmath && \
+	docker-php-ext-configure zip --with-libzip && \
+	docker-php-ext-install gd \
+							intl \
+							pdo_mysql \
+							mbstring \
+							bcmath \
+							soap \
+							sockets \
+							mysqli \
+							simplexml \
+							xmlrpc \
+							xml \
+							zip
