@@ -7,7 +7,8 @@ RUN apk update && apk add \
     libpng-dev \
     freetype-dev \
     libjpeg-turbo-dev \
-    libxml2-dev
+    libxml2-dev \
+    msmtp
 
 # Add the Memcache PHP module.
 RUN curl -L -o /tmp/memcached.tar.gz "https://github.com/php-memcached-dev/php-memcached/archive/master.tar.gz" \
